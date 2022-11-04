@@ -1,0 +1,117 @@
+{
+    "experiment_config": {
+        "baseline": false,
+        "seed": 15,
+	"comment_dataset": "FairFace",
+        "comment_dataset_path": "/u/anonymous/Datasets/Faces/fairface/",
+        "comment_dataset": "CelebA",
+        "comment_dataset_path": "/u/anonymous/Datasets/Faces/celeba/",
+        "dataset": "UTKFace",
+        "dataset_path": "/u/anonymous/Datasets/Faces/UTKFace/UTKFace/",
+        "total_epochs": 100,
+        "im_size": 128,
+        "lr": 4e-4,
+        "attribute": "gender",
+        "logits": 2,
+        "experiment_type": "training",
+        "split_data": true,
+        "results_path_base": "/u/anonymous/Workspace/sanitizer/experiments/rebuttal/",
+        "gpu_devices": [0,1],
+        "train_split": 0.9,
+        "train_batch_size_per_gpu": 64,
+        "test_batch_size": 32,
+        "is_cas": false
+    },
+    "comment_research_config": {
+        "comment": "utkface",
+        "method": "ours",
+	    "mechanism": "dpgmm",
+        "eps": 1.0,
+        "sensitive_components": 2,
+        "alpha_values": [1.0, 0, 1, 0],
+        "priv_dim": 8,
+        "nc": 3,
+        "ngf": 128,
+        "ndf": 128,
+        "beta": 5,
+        "nz": 32,
+        "dcorr": true,
+        "adv": true,
+        "tag": "rebuttal"
+    },
+    "comment_research_config": {
+        "comment": "celeba",
+        "method": "ours",
+	"mechanism": "dpgmm",
+        "eps": 1.0,
+        "alpha_values": [1, 1, 1, 100],
+        "priv_dim": 10,
+        "nc": 3,
+        "ngf": 128,
+        "ndf": 128,
+        "beta": 0.1,
+        "nz": 100,
+        "dcorr": true,
+        "adv": true,
+        "tag": "recons"
+    },
+    "comment_research_config": {
+        "comment": "fairface",
+        "method": "ours",
+	    "mechanism": "suppression_gen",
+        "eps": 10.0,
+        "sensitive_components": 7,
+        "clusters": 2,
+        "alpha_values": [1e-4, 1.0, 5.0, 0.0],
+        "priv_dim": 10,
+        "nc": 3,
+        "ngf": 128,
+        "ndf": 128,
+        "beta": 14,
+        "nz": 80,
+        "dcorr": true,
+        "non_priv_pred": true,
+        "tag": "recons"
+    },
+    "comment_research_config": {
+        "method": "tcvae",
+	    "mechanism": "sampling",
+        "sensitive_components": 7,
+        "priv_dim": 20,
+        "nc": 3,
+        "ngf": 128,
+        "ndf": 128,
+        "beta": 10,
+        "nz": 100,
+        "tag": "recons"
+    },
+    "comment_research_config": {
+        "method": "tiprdc",
+        "lambda": 0.001
+    },
+    "comment_research_config": {
+        "method": "adversarial",
+        "lambda": 0.1
+    },
+    "comment_research_config": {
+        "method": "maxentropy",
+        "lambda": 0.9
+    },
+    "comment_research_config": {
+        "method": "gap",
+        "lambda": 0.9999,
+        "D": 10
+    },
+    "comment_research_config": {
+        "method": "noise",
+        "sigma": 5.0
+    },
+    "research_config": {
+        "method": "vae",
+        "beta": 0.1,
+        "nc": 3,
+        "ngf": 128,
+        "ndf": 128,
+        "nz": 100
+    }
+}
